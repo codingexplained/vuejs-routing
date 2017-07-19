@@ -22,6 +22,13 @@
 
                         <div class="nav navbar-nav navbar-right">
                             <div class="stats">{{ cart.items.length }} <template v-if="cart.items.length == 1">item</template><template v-else>items</template> in cart, totalling {{ cartTotal | currency }}</div>
+
+                            <div style="margin-top: 8px;">
+                                <router-link :to="{ name: 'viewProfile' }">My Profile</router-link>
+                                &nbsp;
+                                <button v-if="auth.isLoggedIn" class="btn btn-primary" @click="auth.isLoggedIn = false">Log out</button>
+                                <button v-else class="btn btn-primary" @click="auth.isLoggedIn = true">Log in</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -40,6 +47,7 @@
 <script>
     import { eventBus } from './main';
     import CartMixin from './mixins/cart';
+    import { authService } from './main';
 
     export default {
         mixins: [ CartMixin ],
@@ -47,7 +55,8 @@
             return {
                 cart: {
                     items: []
-                }
+                },
+                auth: authService
             };
         },
         created() {

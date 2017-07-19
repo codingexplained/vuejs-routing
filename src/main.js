@@ -34,6 +34,7 @@ Vue.filter('currency', function(value) {
 });
 
 export const eventBus = new Vue();
+export const authService = { isLoggedIn: false };
 
 new Vue({
     el: '#app',
