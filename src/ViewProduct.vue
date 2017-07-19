@@ -57,7 +57,7 @@
                 return match;
             },
             goBack() {
-                this.$router.push('/');
+                this.$router.go(-1);
             }
         },
         computed: {
