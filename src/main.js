@@ -34,6 +34,10 @@ router.beforeEach((to, from, next) => {
     next();
 });
 
+router.afterEach((to, from) => {
+    //alert("You just navigated somewhere!");
+});
+
 Vue.filter('currency', function(value) {
     let formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
