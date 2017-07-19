@@ -27,7 +27,12 @@
                 </div>
             </nav>
 
-            <router-view :cart="cart"></router-view>
+            <transition
+                    enter-active-class="animated fadeInRight"
+                    leave-active-class="animated fadeOutLeft"
+                    mode="out-in">
+                <router-view :cart="cart"></router-view>
+            </transition>
         </div>
     </div>
 </template>
