@@ -3,14 +3,15 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="#" class="navbar-brand">E-commerce Inc.</a>
+                    <router-link to="/" class="navbar-brand"><strong>E-commerce Inc.</strong></router-link>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Cart</a></li>
+                        <li><router-link to="/">Products</router-link></li>
+                        <li><router-link to="/cart">Cart</router-link></li>
                     </ul>
+
                     <div class="nav navbar-nav navbar-right">
                         <div class="stats">{{ cart.items.length }} <template v-if="cart.items.length == 1">item</template><template v-else>items</template> in cart, totalling {{ cartTotal | currency }}</div>
                     </div>
