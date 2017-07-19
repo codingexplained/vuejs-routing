@@ -54,6 +54,9 @@
                     name: 'viewProduct',
                     params: {
                         productId: product.id
+                    },
+                    query: {
+                        discount: 10
                     }
                 });
             }
