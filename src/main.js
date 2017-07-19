@@ -10,7 +10,8 @@ const router = new VueRouter({
     routes: [
         { path: '', component: ProductList },
         { path: '/cart', component: Cart }
-    ]
+    ],
+    mode: 'history'
 });
 
 Vue.filter('currency', function(value) {
