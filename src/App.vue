@@ -17,6 +17,8 @@
                 </div>
             </div>
         </nav>
+
+        <router-view :cart="cart"></router-view>
     </div>
 </template>
 
