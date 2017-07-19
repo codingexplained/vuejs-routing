@@ -5,7 +5,7 @@
                 <img @click="clickedImage(product)" class="group list-group-image" src="http://placehold.it/400x250/000/fff">
                 <div class="caption">
                     <router-link
-                            :to="{ name: 'viewProduct', params: { productId: product.id } }"
+                            :to="{ name: 'viewProduct', params: { productId: product.id }, hash: '#related' }"
                             tag="h4"
                             class="group inner list-group-item-heading">
                         <a>{{ product.name }}</a>
