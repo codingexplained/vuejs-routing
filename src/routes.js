@@ -9,6 +9,6 @@ export const routes = [
     
     { path: '', component: ProductList },
     { path: '/products/:productId', name: 'viewProduct', props: true, component: ViewProduct },
-    { path: '/cart', component: Cart },
+    { path: '/cart', component: Cart, alias: '/shopping-cart' },
     { path: '*', component: { template: '<h1>Page Not Found!</h1>' } }
 ];
