@@ -1,9 +1,59 @@
 <template>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand">E-commerce Inc.</a>
+                </div>
 
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Cart</a></li>
+                    </ul>
+                    <div class="nav navbar-nav navbar-right">
+                        <div class="stats">{{ cart.items.length }} <template v-if="cart.items.length == 1">item</template><template v-else>items</template> in cart, totalling {{ cartTotal | currency }}</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
 </template>
 
 <script>
-    export default {
+    import { eventBus } from './main';
+    import CartMixin from './mixins/cart';
 
+    export default {
+        mixins: [ CartMixin ],
+        data() {
+            return {
+                cart: {
+                    items: []
+                }
+            };
+        },
+        created() {
+            eventBus.$on('addItemToCart', (data) => {
+                this.addProductToCart(data.product, data.quantity);
+            });
+        }
     }
 </script>
+
+<style>
+    .flex { display:flex }
+    .flex.flex-column { flex-direction: column; }
+    .flex.flex-row { flex-direction: row; }
+    .flex.justify-center { justify-content: center; }
+    .flex.justify-left { justify-content: flex-start; }
+    .flex.justify-right { justify-content: flex-end; }
+    .flex.align-center { align-items: center; }
+    .flex.align-left { align-items: flex-start; }
+    .flex.align-right { align-items: flex-end; }
+
+    /* Navigation */
+    .navbar .stats {
+        margin-top: 15px;
+    }
+</style>
