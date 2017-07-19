@@ -9,7 +9,8 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     routes: [
         { path: '', component: ProductList },
-        { path: '/cart', component: Cart }
+        { path: '/cart', component: Cart },
+        { path: '*', component: { template: '<h1>Page Not Found!</h1>' } }
     ],
     mode: 'history'
 });
