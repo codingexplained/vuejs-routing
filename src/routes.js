@@ -5,7 +5,6 @@ import Product from './Product.vue';
 import ProductReviews from './ProductReviews.vue';
 import SpecialOffer from './SpecialOffer.vue';
 import ViewProfile from './ViewProfile.vue';
-import { authService } from './main';
 
 export const routes = [
     { path: '', components: {
@@ -19,15 +18,7 @@ export const routes = [
     {
         path: '/user/profile',
         name: 'viewProfile',
-        component: ViewProfile,
-        beforeEnter(to, from, next) {
-            if (!authService.isLoggedIn) {
-                alert("You must be logged in!");
-                return next(false);
-            }
-        
-            next();
-        }
+        component: ViewProfile
     },
     { path: '/cart', component: Cart },
     { path: '*', component: { template: '<h1>Page Not Found!</h1>' } }
