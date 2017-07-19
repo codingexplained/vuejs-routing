@@ -18,7 +18,10 @@ export const routes = [
     {
         path: '/user/profile',
         name: 'viewProfile',
-        component: ViewProfile
+        component: ViewProfile,
+        meta: {
+            isAuthRequired: true
+        }
     },
     { path: '/cart', component: Cart },
     { path: '*', component: { template: '<h1>Page Not Found!</h1>' } }

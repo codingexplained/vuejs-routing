@@ -23,6 +23,17 @@ const router = new VueRouter({
     }
 });
 
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.isAuthRequired)) {
+        if (!authService.isLoggedIn) {
+            alert("You must be logged in!");
+            return next(false);
+        }
+    }
+    
+    next();
+});
+
 Vue.filter('currency', function(value) {
     let formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
