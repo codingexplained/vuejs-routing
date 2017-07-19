@@ -1,30 +1,34 @@
 <template>
-    <div class="container">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <router-link to="/" exact class="navbar-brand"><strong>E-commerce Inc.</strong></router-link>
-                </div>
+    <div>
+        <router-view name="discount"></router-view>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <router-link to="/" tag="li" exact active-class="active">
-                            <a>Products</a>
-                        </router-link>
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <router-link to="/" exact class="navbar-brand"><strong>E-commerce Inc.</strong></router-link>
+                    </div>
 
-                        <router-link to="/cart" tag="li" active-class="active">
-                            <a>Cart</a>
-                        </router-link>
-                    </ul>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <router-link to="/" tag="li" exact active-class="active">
+                                <a>Products</a>
+                            </router-link>
 
-                    <div class="nav navbar-nav navbar-right">
-                        <div class="stats">{{ cart.items.length }} <template v-if="cart.items.length == 1">item</template><template v-else>items</template> in cart, totalling {{ cartTotal | currency }}</div>
+                            <router-link to="/cart" tag="li" active-class="active">
+                                <a>Cart</a>
+                            </router-link>
+                        </ul>
+
+                        <div class="nav navbar-nav navbar-right">
+                            <div class="stats">{{ cart.items.length }} <template v-if="cart.items.length == 1">item</template><template v-else>items</template> in cart, totalling {{ cartTotal | currency }}</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <router-view :cart="cart"></router-view>
+            <router-view :cart="cart"></router-view>
+        </div>
     </div>
 </template>
 

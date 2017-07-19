@@ -3,9 +3,13 @@ import ViewProduct from './ViewProduct.vue';
 import Cart from './Cart.vue';
 import Product from './Product.vue';
 import ProductReviews from './ProductReviews.vue';
+import SpecialOffer from './SpecialOffer.vue';
 
 export const routes = [
-    { path: '', component: ProductList },
+    { path: '', components: {
+        default: ProductList,
+        discount: SpecialOffer
+    } },
     { path: '/products/:productId', name: 'product', props: true, component: Product, children: [
         { path: 'details', name: 'viewProduct', props: true, component: ViewProduct },
         { path: 'reviews', name: 'productReviews', props: true, component: ProductReviews }
